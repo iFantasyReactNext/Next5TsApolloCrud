@@ -1,21 +1,14 @@
-import { compose, createStore, combineReducers } from 'redux'
+import { compose, createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from "redux-devtools-extension";
+import { createEpicMiddleware } from 'redux-observable'
+import { rootReducer, rootEpic } from './reduxObserable'
 
-const rootReducer = (store: { "project": "線上讀書會" }, action) => {
-  switch (action.type) {
-    default:
-      return store
-      break
-  }
-}
-
+//創立一個 action steam
+const epicMiddleware = createEpicMiddleware(rootEpic)
 export default function configureStore() {
-
   const store = createStore(
     rootReducer,
-    composeWithDevTools()
-
+    composeWithDevTools(applyMiddleware(epicMiddleware))
   )
-
-
+  return store
 }

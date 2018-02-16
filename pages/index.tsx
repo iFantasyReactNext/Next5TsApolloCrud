@@ -1,9 +1,10 @@
 import * as React from 'react';
-
+import withRedux from 'next-redux-wrapper'
+import configureStore from '../store'
 export interface AppProps {
 }
 
-export default class App extends React.Component<AppProps, any> {
+class App extends React.Component<AppProps, any> {
   render() {
     return (
       <div>
@@ -12,3 +13,4 @@ export default class App extends React.Component<AppProps, any> {
     );
   }
 }
+export default withRedux(configureStore, null, null)(App)
