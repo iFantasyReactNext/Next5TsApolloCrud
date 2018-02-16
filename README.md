@@ -1,11 +1,11 @@
 # Next5TsApolloCrud
 
 
-commit step 1 typescript + next  ok
+commit step 1 typescript + next.js 5  ok
 
+commit redux-form 
 
-
-redux-form  + apolloGraphQL + redux-obserable + Next.js 5 
+apolloGraphQL + redux-obserable 
 
 materail Ui 等正式版 Release
 
