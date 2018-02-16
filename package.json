@@ -5,5 +5,27 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "typescript": "^2.7.2"
-  }
+  },
+  "name": "next5tsapollocrud",
+  "description": "Next5 + typescript + apolloGraphQL + reduxForm = CRUD",
+  "version": "1.0.0",
+  "main": "next.config.js",
+  "devDependencies": {},
+  "scripts": {
+    "dev": "next"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/polo13999/Next5TsApolloCrud.git"
+  },
+  "keywords": [
+    "online",
+    "readbook"
+  ],
+  "author": "polo <polo13999@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/polo13999/Next5TsApolloCrud/issues"
+  },
+  "homepage": "https://github.com/polo13999/Next5TsApolloCrud#readme"
 }
