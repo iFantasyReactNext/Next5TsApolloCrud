@@ -1,7 +1,7 @@
 # Next5TsApolloCrud
 
 
-commit step 1 typescript ok
+commit step 1 typescript + next  ok
 
 
 
