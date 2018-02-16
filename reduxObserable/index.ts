@@ -9,5 +9,6 @@ export const rootEpic = combineEpics(
 );
 
 export const rootReducer = combineReducers({
-  UserReducer
+  UserReducer,
+  formReducer
 });

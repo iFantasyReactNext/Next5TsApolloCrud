@@ -4,8 +4,7 @@
 commit step 1 typescript + next.js 5  ok
 commit redux   ok
 commit redux-obserable   ok
-
-commit redux-form 
+commit redux-form  store 安裝 ok
 
 apolloGraphQL + redux-obserable 
 
