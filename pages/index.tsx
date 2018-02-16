@@ -8,7 +8,7 @@ class App extends React.Component<AppProps, any> {
   render() {
     return (
       <div>
-        123
+        各種好物的ＤＥＭＯ
       </div>
     );
   }
