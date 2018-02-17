@@ -6,6 +6,7 @@
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "graphql": "^0.13.1",
+    "graphql-tag": "^2.7.3",
     "graphql-tools": "^2.21.0",
     "http": "^0.0.0",
     "next": "^5.0.0",
@@ -26,7 +27,7 @@
   "main": "next.config.js",
   "devDependencies": {},
   "scripts": {
-    "dev": "node server"
+    "dev": "ts-node server"
   },
   "repository": {
     "type": "git",

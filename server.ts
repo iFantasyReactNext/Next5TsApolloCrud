@@ -18,9 +18,9 @@ app.prepare().then(() => {
     graphqlExpress(async req => {
       return {
         schema: AllSchema,
-        context: { user: req.user },
-        tracing: true,
-        cacheControl: true
+        // context: { user: req.user },
+        // tracing: true,
+        // cacheControl: true
       };
     })
   );
@@ -34,10 +34,6 @@ app.prepare().then(() => {
   server.use((req, res, next) => {
     next();
   });
-
-
-  server.use(handlerouter);
-
 
 
 

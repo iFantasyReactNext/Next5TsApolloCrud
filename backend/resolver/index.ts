@@ -1,1 +1,5 @@
-export const AllResolvers = {}
+import { UserResolver } from './UserResolver'
+
+
+
+export default [UserResolver]

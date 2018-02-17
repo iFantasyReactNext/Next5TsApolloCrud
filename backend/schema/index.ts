@@ -1,1 +1,4 @@
-export const AllDef = {}
+import { UserSchema } from './User';
+
+export default [UserSchema]
+
