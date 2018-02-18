@@ -3,7 +3,6 @@ import initApollo from './initApollo';
 import { ApolloProvider, getDataFromTree } from 'react-apollo'
 import Head from 'next/head'
 import configureStore from '../../store';
-import { ApolloClient } from 'apollo-client';
 
 
 
@@ -11,8 +10,15 @@ function getComponentDisplayName(Component) {
   return Component.displayName || Component.name || 'Unknown'
 }
 
+interface Props {
+  [propName: string]: any;
+}
+interface States {
+  [propName: string]: any;
+}
+
 export default (ComposedComponet) => {
-  return class WithData extends React.Component {
+  return class WithData extends React.Component<Props, States> {
     static displayName = `WithData(${getComponentDisplayName(ComposedComponet)})`
     static async getInitialProps(ctx) {
       let serverState = { apollo: { data: {} } }
@@ -23,25 +29,42 @@ export default (ComposedComponet) => {
       console.log('apollo')
 
       if (!process.browser) {
+        //ServerSide
         const apollo = initApollo();
         const url = { query: ctx.query, pathname: ctx.pathname };
         try {
-          console.log(ApolloProvider)
-          //const data = 
-          //  <ApolloProvider  client={ apollo }>
-          //    <ComposedComponent url={ url } { ...composedInitialProps } />
-          //      < /ApolloProvider>
-
-          //await getDataFromTree(          )
+          await getDataFromTree(
+            <ApolloProvider client={apollo}>
+              <ComposedComponet url={url} {...composedInitialProps} />
+            </ApolloProvider>
+          )
         } catch (err) {
           console.log(err)
         }
+        Head.rewind();
+        serverState = {
+          apollo: {
+            data: apollo.cache.extract()
+          }
+        };
       }
-
-
-
+      //把ServerSide的資料變成 Props
+      return {
+        serverState,
+        ...composedInitialProps
+      }
     }
-
-
+    private apollo: any;
+    constructor(props) {
+      super(props)
+      this.apollo = initApollo(this.props.serverState.apollo.data)
+    }
+    render() {
+      return (
+        <ApolloProvider client={this.apollo}>
+          <ComposedComponet {...this.props} />
+        </ApolloProvider>
+      )
+    }
   }
 }
