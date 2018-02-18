@@ -1,0 +1,4 @@
+
+
+declare var ApolloProvider: any;
+

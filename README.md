@@ -6,6 +6,7 @@ commit redux   ok
 commit redux-obserable   ok
 commit redux-form  store 安裝 ok
 commit apolloGraphQL 後端 ok
+commit apolloGraphQL 前端 
 
 
 

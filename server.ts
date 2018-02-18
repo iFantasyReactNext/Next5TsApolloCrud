@@ -8,6 +8,7 @@ const { AllSchema } = require("./backend");
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
 
+const handle = app.getRequestHandler()
 
 app.prepare().then(() => {
   const server = express();
@@ -34,7 +35,9 @@ app.prepare().then(() => {
   server.use((req, res, next) => {
     next();
   });
-
+  server.get('*', (req, res) => {
+    return handle(req, res)
+  })
 
 
 

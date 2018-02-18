@@ -1,5 +1,5 @@
 import * as React from 'react';
-import withRedux from 'next-redux-wrapper'
+import * as  withRedux from 'next-redux-wrapper'
 import configureStore from '../store'
 export interface AppProps {
 }
