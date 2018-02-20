@@ -1,5 +1,5 @@
-import { UserResolver } from './UserResolver'
+var UserResolver = require('./UserResolver')
 
 
 
-export default [UserResolver]
+module.exports = [UserResolver]

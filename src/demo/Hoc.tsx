@@ -1,20 +1,20 @@
-import * as React from 'react'
-import { Component } from 'react';
-interface Props {
-  [propName: string]: any;
-}
-interface States {
-  [propName: string]: any;
-}
-export default <P extends Props>(ComposedComponet: React.ComponentType<P>) => {
-  return class WithData extends React.Component<Props, States> {
+import *  as React from 'react'
+
+export default (OO) => {
+  return class GG extends React.PureComponent<any, any> {
+    static async getInitialProps() {
+      let data = "後端給的愛";
+      return { data }
+    }
+    constructor(props) {
+      super(props)
+    }
     render() {
-      return (
-        <div>
-          <ComposedComponet {...this.props} />
-        </div>
-      )
+      console.log('this.props')
+
+      console.log(this.props)
+      return <div>{this.props.data} < OO /></div >
+
     }
   }
 }
-

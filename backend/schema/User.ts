@@ -1,6 +1,6 @@
 
 
-export const UserSchema = `
+module.exports = UserSchema = `
  type User{
       name:String,
       tel:String,

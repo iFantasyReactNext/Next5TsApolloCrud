@@ -1,8 +1,10 @@
-import { makeExecutableSchema } from "graphql-tools";
-import AllDef from './schema'
-import AllResolvers from './resolver'
+var { makeExecutableSchema } = require('graphql-tools');
+var AllDef = require('./schema')
+var AllResolvers = require('./resolver')
 
-export const AllSchema = makeExecutableSchema({
+//console.log(AllDef)
+
+module.exports = makeExecutableSchema({
   typeDefs: AllDef,
   resolvers: AllResolvers
 })

@@ -1,17 +1,16 @@
 import * as React from 'react';
-import WithData1 from '../src/config/WithData1'
-export interface TestPageProps {
-  [PropName: string]: any
+import WithData1 from '../src/config/WithData1';
+
+export interface AppProps {
 }
 
-
-class TestPage extends React.Component<TestPageProps, any> {
+class App extends React.Component<AppProps, any> {
   render() {
     return (
       <div>
-        ApolloGraphQL 前端ＤＥＭＯ
+        OK
       </div>
     );
   }
 }
-export default WithData1(TestPage)
+export default WithData1(App)

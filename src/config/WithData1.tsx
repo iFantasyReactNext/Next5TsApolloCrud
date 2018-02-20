@@ -20,22 +20,14 @@ interface PoloDataType {
 }
 
 export default function <P extends Props>(ComposedComponet: any): React.ComponentClass<P & Props> {
-  return class WithData extends React.Component<P & Props> {
+  return class WithData extends React.PureComponent<P & Props> {
     static displayName = `WithData(${getComponentDisplayName(ComposedComponet)})`
     //這裡如果加async 就會噴錯
     public static getInitialProps(context: Context) {
       //希望有某西 await在後端跑又透過ＨＯＣ的方式的話 這邊會不能跑 先放著
-      console.log('componentDidMount0')
       return {}
     }
-    componentDidMount() {
-      console.log('componentDidMount1')
 
-      // ComposedComponet()
-      //   .then(cmp => {
-      //     console.log('componentDidMount2')
-      //   });
-    }
 
     render() {
       return (
