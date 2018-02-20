@@ -1,6 +1,7 @@
 import * as React from 'react';
-import * as withData from '../src/config/withData'
+import WithData1 from '../src/config/WithData1'
 export interface TestPageProps {
+  [PropName: string]: any
 }
 
 
@@ -13,4 +14,4 @@ class TestPage extends React.Component<TestPageProps, any> {
     );
   }
 }
-export default withData(TestPage)
+export default WithData1(TestPage)

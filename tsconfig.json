@@ -11,6 +11,8 @@
     //"noUnusedParameters": true,
     //"removeComments": false,
     //"preserveConstEnums": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     "sourceMap": true,
     //"skipLibCheck": true,
     "baseUrl": ".",

@@ -1,5 +1,8 @@
 
 
 //declare var ApolloProvider: any;
+// interface Props {
+//   [PropName: string]: any
 
-//declare var getDataFromTree: any;
+// }
+// declare function getInitialProps(Props): any;
