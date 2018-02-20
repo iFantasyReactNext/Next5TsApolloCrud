@@ -13,3 +13,5 @@ commit apolloGraphQL 前端
 materail Ui 等正式版 Release
 
 
+記錄一下 關於 getInitialProps 先不使用 async 尚未找到對應型別
+

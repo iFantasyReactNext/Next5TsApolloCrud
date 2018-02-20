@@ -36,7 +36,8 @@
   "main": "next.config.js",
   "devDependencies": {},
   "scripts": {
-    "dev": "ts-node server"
+    "dev": "ts-node  server",
+    "dev:debug": "ts-node --inspect-brk=5858 server"
   },
   "repository": {
     "type": "git",
