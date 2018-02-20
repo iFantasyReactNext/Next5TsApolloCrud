@@ -1,5 +1,5 @@
 import * as React from 'react';
-import WithData1 from '../src/config/WithData1';
+import WithData from '../src/config/WithData';
 
 export interface AppProps {
 }
@@ -13,4 +13,4 @@ class App extends React.Component<AppProps, any> {
     );
   }
 }
-export default WithData1(App)
+export default WithData(App)

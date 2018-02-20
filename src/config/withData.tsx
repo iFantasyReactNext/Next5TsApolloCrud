@@ -2,7 +2,7 @@ import * as React from 'react'
 import initApollo from './initApollo';
 import { ApolloProvider, getDataFromTree } from 'react-apollo'
 import Head from 'next/head'
-import configureStore from '../../store';
+//import configureStore from '../../store';
 
 
 
