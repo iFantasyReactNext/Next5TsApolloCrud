@@ -3,7 +3,7 @@ import BasicForm from '../src/form/BasicForm/BasicForm'
 import WithRedux from '../src/config/WithRedux'
 import BasicInit from '../src/form/BasicForm/BasicInit'
 import WithData from '../src/config/WithData'
-import { UserQuery } from '../src/gql/User';
+import { UserOneQuery } from '../src/gql/User';
 
 export interface AppProps {
   [propsName: string]: any
@@ -29,8 +29,8 @@ class App extends React.Component<AppProps, any> {
         if (result.loading) return <div>Loading</div>
         if (result.error) return <div>有錯誤歐</div>
         return <div>
-          {result.UserQuery.name}
-          <BasicForm initialValues={result.UserQuery}></BasicForm>
+          {result.UserOneQuery.name}
+          <BasicForm initialValues={result.UserOneQuery}></BasicForm>
 
         </div>
       }

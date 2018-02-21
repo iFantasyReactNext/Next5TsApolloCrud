@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { UserQuery } from '../../gql/User';
+import { UserOneQuery } from '../../gql/User';
 import { graphql } from "react-apollo";
 
 export interface BasicInitProps {
@@ -16,14 +16,14 @@ class BasicInit extends React.Component<BasicInitProps, any> {
   }
   render() {
 
-    // if (this.props.loading === true) { return <div>Loading</div> }
+    if (this.props.loading === true) { return <div>Loading</div> }
     //console.log('-----BasicInit-----')
     //console.log(this.props)
     return this.props.children(this.props)
   }
 }
 
-export default graphql<any, any>(UserQuery, {
+export default graphql<any, any>(UserOneQuery, {
   props: ({ data, mutate }) => {
     // console.log("BasicInit")
     // console.log(data)

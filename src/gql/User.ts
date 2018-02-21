@@ -1,9 +1,9 @@
 import gql from 'graphql-tag'
 
 
-export const UserQuery = gql`
-      query UserQuery{
-                  UserQuery  {
+export const UserOneQuery = gql`
+      query UserOneQuery{
+            UserOneQuery  {
                         name
                         tel 
                         nickName
@@ -11,6 +11,16 @@ export const UserQuery = gql`
       }
 `
 
+
+export const UserAllQuery = gql`
+      query UserAllQuery{
+            UserAllQuery  {
+                        name
+                        tel 
+                        nickName
+                        }
+      }
+`
 
 export const UserMutaion = gql`
       mutation UserMutaion($name:String,$tel:String,$nickName:String) {

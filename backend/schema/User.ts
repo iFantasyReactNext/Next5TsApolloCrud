@@ -8,9 +8,12 @@ module.exports = UserSchema = `
  }
 
  type Query{
-      UserQuery:User    
+      UserAllQuery:[User]
+      UserOneQuery:User    
  }
  type Mutation{
       UserMutaion(name:String,nickName:String,tel:String):User
+      UserAdd(name:String,nickName:String,tel:String):User
+      UserDelete(id:String):User
  }
 `
