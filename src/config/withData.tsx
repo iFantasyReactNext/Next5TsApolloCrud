@@ -20,13 +20,14 @@ interface States {
 export default (ComposedComponet) => {
   return class WithData extends React.Component<Props, States> {
     static displayName = `WithData(${getComponentDisplayName(ComposedComponet)})`
+
     static async getInitialProps(ctx) {
       let serverState = { apollo: { data: {} } }
       let composedInitialProps = {}
       if (ComposedComponet.getInitialProps) {
         composedInitialProps = await ComposedComponet.getInitialProps(ctx)
       }
-      console.log('apollo')
+      console.log('===apolloA===')
 
       if (!process.browser) {
         //ServerSide

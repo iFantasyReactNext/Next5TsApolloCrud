@@ -7,6 +7,7 @@ commit redux-obserable   ok
 commit redux-form  store 安裝 ok
 commit apolloGraphQL 後端 ok
 commit apolloGraphQL 前端 ok
+commit redux-form sample code
 
 materail Ui 等正式版 Release
 

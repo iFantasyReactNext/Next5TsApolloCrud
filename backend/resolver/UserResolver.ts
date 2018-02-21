@@ -1,7 +1,12 @@
 module.exports = UserResolver = {
   Query: {
     UserQuery: () => {
-      return { nickName: 'polo' }
+      return { name: "紀相安", nickName: 'polo' }
     }
   },
+  Mutation: {
+    UserMutaion: (_, { name, nickName, tel }) => {
+      return { name, nickName, tel }
+    }
+  }
 }

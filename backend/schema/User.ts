@@ -10,4 +10,7 @@ module.exports = UserSchema = `
  type Query{
       UserQuery:User    
  }
+ type Mutation{
+      UserMutaion(name:String,nickName:String,tel:String):User
+ }
 `
