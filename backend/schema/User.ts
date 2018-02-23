@@ -2,6 +2,7 @@
 
 module.exports = UserSchema = `
  type User{
+      userId:String,
       name:String,
       tel:String,
       nickName:String      
@@ -9,10 +10,10 @@ module.exports = UserSchema = `
 
  type Query{
       UserAllQuery:[User]
-      UserOneQuery:User    
+      UserOneQuery(userId:String):User    
  }
  type Mutation{
-      UserMutaion(name:String,nickName:String,tel:String):User
+      UserUpdate(name:String,nickName:String,tel:String):User
       UserAdd(name:String,nickName:String,tel:String):User
       UserDelete(id:String):User
  }

@@ -4,6 +4,8 @@ import WithRedux from '../src/config/WithRedux'
 import BasicInit from '../src/form/BasicForm/BasicInit'
 import WithData from '../src/config/WithData'
 import { UserOneQuery } from '../src/gql/User';
+import TableListData from '../src/form/BasicForm/TableListData';
+import TableList from '../src/form/BasicForm/TableList';
 
 export interface AppProps {
   [propsName: string]: any
@@ -22,19 +24,22 @@ class App extends React.Component<AppProps, any> {
     // if (this.props.error) { return <div>程式碼有錯誤歐</div> }
     //return <BasicForm initialValues={{ name: 'polo' }}></BasicForm>
 
-    return (<BasicInit>{
-      (result) => {
-        // console.log('result')
-        // console.log(result)
-        if (result.loading) return <div>Loading</div>
-        if (result.error) return <div>有錯誤歐</div>
-        return <div>
-          {result.UserOneQuery.name}
-          <BasicForm initialValues={result.UserOneQuery}></BasicForm>
+    return (
+      <div>
+        <TableListData>
+          {(result) => {
+            // console.log('result')
+            // console.log(result)
+            return <TableList initData={result.data.UserAllQuery}>
 
-        </div>
-      }
-    }</BasicInit>);
+            </TableList>
+          }}
+        </TableListData>
+
+
+
+      </div>
+    );
   }
 }
 export default WithData(App)

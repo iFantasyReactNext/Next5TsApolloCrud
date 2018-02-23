@@ -27,7 +27,7 @@ export default (ComposedComponet) => {
       if (ComposedComponet.getInitialProps) {
         composedInitialProps = await ComposedComponet.getInitialProps(ctx)
       }
-      console.log('===apolloA===')
+      //      console.log('===apolloA===')
 
       if (!process.browser) {
         //ServerSide

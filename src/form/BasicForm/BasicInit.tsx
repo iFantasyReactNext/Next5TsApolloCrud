@@ -24,8 +24,12 @@ class BasicInit extends React.Component<BasicInitProps, any> {
 }
 
 export default graphql<any, any>(UserOneQuery, {
+  options: ({ userId }) => ({
+    variables: { userId },
+  }),
   props: ({ data, mutate }) => {
-    // console.log("BasicInit")
+    // console.log()
+    // console.log('dataCheck')
     // console.log(data)
     return data
     //     onSubmit: async (inputData) => {
