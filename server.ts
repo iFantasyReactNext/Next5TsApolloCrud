@@ -16,7 +16,7 @@ app.prepare().then(() => {
   server.use(
     "/graphql",
     bodyParser.json(),
-    graphqlExpress(async req => {
+    graphqlExpress(async () => {
       return {
         schema: AllSchema,
         // context: { user: req.user },

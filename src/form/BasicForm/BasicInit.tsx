@@ -27,7 +27,7 @@ export default graphql<any, any>(UserOneQuery, {
   options: ({ userId }) => ({
     variables: { userId },
   }),
-  props: ({ data, mutate }) => {
+  props: ({ data }) => {
     // console.log()
     // console.log('dataCheck')
     // console.log(data)

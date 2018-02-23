@@ -24,6 +24,8 @@ class App extends React.Component<AppProps, any> {
     return (
       <div>
 
+        <BasicForm initialValues={{ name: "polo" }}></BasicForm>
+        {/* 
         <BasicInit userId={1}>{
           (result) => {
             console.log('result')
@@ -32,10 +34,10 @@ class App extends React.Component<AppProps, any> {
             if (result.error) return <div>有錯誤歐</div>
             return <div>
               {result.UserOneQuery.name}
-              <BasicForm initialValues={result.UserOneQuery}></BasicForm>
+                   <BasicForm initialValues={result.UserOneQuery}></BasicForm>
             </div>
           }
-        }</BasicInit>
+        }</BasicInit> */}
 
 
       </div >

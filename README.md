@@ -14,3 +14,8 @@ doing materail Ui
 backend not  support import 
 
 ```
+
+
+note : 
+1. if add vaildate must to show error message that will easy forget 
+2. reducer must be "form" 

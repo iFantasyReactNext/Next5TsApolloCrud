@@ -4,6 +4,8 @@ import { UserDelete, UserAllQuery } from '../../gql/User';
 import { variablesInOperation } from 'apollo-utilities';
 import BasicInit from './BasicInit';
 import BasicForm from './BasicForm';
+
+
 export interface TableListProps {
   initData?: any
   _delete?: any
@@ -29,21 +31,28 @@ class TableList extends React.Component<TableListProps, States> {
 
   }
   render() {
-    // console.log(this.props.initData)
-    const Data = this.props.initData.map(v => {
+    console.log(this.props.initData)
+
+    const Data = (this.props.initData !== undefined) ? this.props.initData.map(v => {
       return <div key={v.name}><li>
         <button onClick={() => this._assign(v.userId)}>指定</button>
         <button onClick={() => this.props._delete(v.userId)}>刪除</button>
         {v.userId}    {v.name} {v.nickName}
       </li></div>
-    })
+    }) : ""
     return (
       <div>
-        列表清單 - 目前指定的Id是 {this.state.assignId}
+        列表清單 - 目前指定的Id是 {this.state.assignId}  改新增 <button
+          onClick={() => this.setState({
+            assignId: ""
+          })}
+        >新增</button>
+
+
         {Data}
 
 
-        <BasicInit userId={this.state.assignId || 1}>{
+        <BasicInit userId={this.state.assignId || "1"}>{
           (result) => {
             console.log('result')
             console.log(result)
@@ -51,7 +60,7 @@ class TableList extends React.Component<TableListProps, States> {
             if (result.error) return <div>有錯誤歐</div>
             return <div>
               {result.UserOneQuery.name}
-              <BasicForm initialValues={result.UserOneQuery}></BasicForm>
+              <BasicForm assignId={this.state.assignId} initialValues={result.UserOneQuery}></BasicForm>
             </div>
           }
         }</BasicInit>
@@ -60,11 +69,12 @@ class TableList extends React.Component<TableListProps, States> {
   }
 }
 export default graphql<any, any>(UserDelete, {
-  props: ({ data, mutate }) => ({
+  props: ({ mutate }) => ({
+
     _delete: async (userId) => {
-      console.log('刪除資料嚕')
+      console.log(`刪除資料嚕${userId}`)
       return await mutate({
-        variables: userId,
+        variables: { userId },
         refetchQueries: [{ query: UserAllQuery }]
       })
     },

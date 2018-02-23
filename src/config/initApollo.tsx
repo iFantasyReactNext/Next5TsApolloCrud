@@ -2,7 +2,7 @@ import { ApolloClient } from 'apollo-client';
 import { HttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import * as fetch from 'isomorphic-unfetch'
-import { ApolloLink, concat } from 'apollo-link'
+import { ApolloLink } from 'apollo-link'
 
 
 let apolloClient = null

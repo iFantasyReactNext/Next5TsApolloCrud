@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { Field, reduxForm } from 'redux-form'
 import { validate } from './validate'
-import { graphql } from 'react-apollo'
+import { compose, graphql } from 'react-apollo'
 //import FormProps from '../../types/reduxForm'
-import { UserUpdate, UserAllQuery } from '../../gql/User';
-import TextField from '../../components/renderComponents/TextField'
-import TableListData from './TableListData'
+import { UserUpdate, UserAllQuery, UserAdd } from '../../gql/User';
+//import TextField from '../../components/renderComponents/TextField'
+//import TableListData from './TableListData'
 import TableList from './TableList'
 // export interface BasicFormProps {
 // }
@@ -27,26 +27,34 @@ class BasicForm extends React.Component<FormProps, any> {
   _Delete = () => {
     console.log('刪除作業')
   }
+
   render() {
-    const { handleSubmit, pristine, reset, submitting, valid } = this.props
-    console.log('this.props.initialValues')
-    console.log(this.props.initialValues)
+    const { handleSubmit, pristine, reset, submitting, valid, handleAddUser, handleUpdateUser } = this.props
+    console.log('this.props.handleSubmit')
+    console.log(this.props.handleSubmit)
+    const gogo = (data) => {
+      console.log('==============')
+      console.log(data)
+      console.log('==============')
+      return ""
+    }
     return (
       <div>
         基礎表單
         {this.props.initialValues.name}
         {this.props.initialValues.nickName}
         {this.props.initialValues.tel}
-        <form onSubmit={handleSubmit}  >
-          <div>
+        <form onSubmit={handleSubmit(gogo)}>
 
-            <Field name="name" value={this.props.initialValues.name} type="text" component="input" />
+          <div>
+            <Field name="name" type="text" component="input" />
             <Field name="nickName" type="text" component="input" />
             <Field name="tel" type="text" component="input" />
           </div>
 
-          <button type="submit" name="add">新增</button>
-          <button type="button" name="edit" onClick={() => this.props.updateSubmit()}>修改</button>
+          <button type="submit" disabled={pristine || submitting}>新增</button>
+          <button type="button" onClick={() => this.props.handleUpdateUser()}>修改</button>
+
         </form>
 
       </div >
@@ -54,12 +62,39 @@ class BasicForm extends React.Component<FormProps, any> {
   }
 }
 export default
-  reduxForm<any, any>({
-    form: 'formBasic', validate, enableReinitialize: true
+  reduxForm({
+    form: 'formBasic'
   })(
-    graphql(UserUpdate, {
-      props: ({ data }) => ({
-        handleSubmit: () => { console.log('新增送出資料嚕') },
-        updateSubmit: () => { console.log('更新送出資料嚕') },
-      })
-    })(BasicForm))
+    compose(
+      graphql(UserAdd, {
+        props: ({ data, mutate }) => ({
+          handleUserAdd: () => {
+            console.log('新增送出資料嚕')
+            mutate({
+              variables: data,
+              refetchQueries: [{
+                query: UserAllQuery
+              }]
+            })
+          },
+        })
+      }),
+
+
+      graphql(UserUpdate, {
+        props: ({ data, mutate }) => ({
+          handleUpdateUser: () => {
+            console.log('送出更新資料嚕')
+            // mutate({
+
+            // })
+          },
+          updateSubmit: () => { console.log('更新送出資料嚕') },
+        })
+      }),
+
+
+
+
+
+    )(BasicForm))

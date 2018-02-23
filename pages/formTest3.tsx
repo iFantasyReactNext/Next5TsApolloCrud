@@ -4,6 +4,9 @@ import WithData from '../src/config/WithData'
 import WithRedux from '../src/config/WithRedux'
 import configureStore from '../store'
 import * as  withRedux from 'next-redux-wrapper'
+import { UserUpdate, UserAllQuery, UserAdd } from '../src/gql/User';
+import { compose, graphql } from 'react-apollo'
+
 
 export interface AppProps {
   [propName: string]: any
@@ -56,4 +59,33 @@ class App extends React.Component<AppProps, any> {
 }
 export default withRedux(configureStore, null, null)(reduxForm({
   form: 'simple' // a unique identifier for this form
-})(App))
+})(
+  compose(
+    graphql(UserAdd, {
+      props: ({ data, mutate }) => ({
+        handleUserAdd: () => {
+          console.log('新增送出資料嚕')
+          mutate({
+            variables: data,
+            refetchQueries: [{
+              query: UserAllQuery
+            }]
+          })
+        },
+      })
+    }),
+
+    graphql(UserUpdate, {
+      props: ({ data, mutate }) => ({
+        handleUpdateUser: () => {
+          console.log('送出更新資料嚕')
+          // mutate({
+
+          // })
+        },
+        updateSubmit: () => { console.log('更新送出資料嚕') },
+      })
+    }),
+
+  )
+    (App)))

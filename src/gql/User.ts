@@ -47,3 +47,15 @@ export const UserDelete = gql`
                         }
       }      
 `
+
+export const UserAdd = gql`
+      mutation UserAdd($name:String,$tel:String,$nickName:String) {
+            UserAdd(name:$name,tel:$tel,nickName:$nickName) 
+                     {
+                        userId
+                        name
+                        tel 
+                        nickName
+                        }
+      }      
+`

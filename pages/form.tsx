@@ -1,18 +1,19 @@
 import * as React from 'react'
 import BasicForm from '../src/form/BasicForm/BasicForm'
 import WithRedux from '../src/config/WithRedux'
-import BasicInit from '../src/form/BasicForm/BasicInit'
+//import BasicInit from '../src/form/BasicForm/BasicInit'
 import WithData from '../src/config/WithData'
-import { UserOneQuery } from '../src/gql/User';
+//import { UserOneQuery } from '../src/gql/User';
 import TableListData from '../src/form/BasicForm/TableListData';
 import TableList from '../src/form/BasicForm/TableList';
-
+import configureStore from '../store'
+import * as  withRedux from 'next-redux-wrapper'
 export interface AppProps {
   [propsName: string]: any
 }
 
 
-@WithRedux
+//@WithRedux
 class App extends React.Component<AppProps, any> {
   constructor(props) {
     super(props)
@@ -30,9 +31,8 @@ class App extends React.Component<AppProps, any> {
           {(result) => {
             // console.log('result')
             // console.log(result)
-            return <TableList initData={result.data.UserAllQuery}>
+            return <TableList initData={result.data.UserAllQuery} />
 
-            </TableList>
           }}
         </TableListData>
 
@@ -42,7 +42,7 @@ class App extends React.Component<AppProps, any> {
     );
   }
 }
-export default WithData(App)
+export default withRedux(configureStore, null, null)(WithData(App))
 
 
 

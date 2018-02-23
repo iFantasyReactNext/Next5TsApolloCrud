@@ -1,3 +1,4 @@
+var shortid = require('shortid');
 
 let InitData = [
   { userId: "1", name: "神力女超人", "nickName": "Wonder Wonmen" },
@@ -12,7 +13,7 @@ module.exports = UserResolver = {
     UserOneQuery: async (_, { userId = "1" }) => {
       console.log(`找一筆${userId}`)
 
-      const result = InitData.find((item, index): any => {
+      const result = InitData.find((item): any => {
         return item.userId === userId
       })
       //console.log(result)
@@ -25,14 +26,20 @@ module.exports = UserResolver = {
     UserUpdate: (_, { userId, name, nickName, tel }) => {
       return { userId, name, nickName, tel }
     },
-    UserAdd: (_, { userId, name, nickName, tel }) => {
-      console.log('修改')
+    UserAdd: (_, { name, nickName, tel }) => {
+      console.log('新增一筆')
+      const userId = shortid.generate()
       return { userId, name, nickName, tel }
     },
     UserDelete: (_, { userId }) => {
+      const result = InitData.findIndex((item): any => {
+        return item.userId === userId
+      })
 
-      console.log('刪除')
-      return { userId: userId }
+
+      console.log(`刪除${result}`)
+      let resultData = InitData.splice(result, 1);
+      return resultData
     }
   }
 }
