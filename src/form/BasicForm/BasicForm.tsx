@@ -41,9 +41,10 @@ class BasicForm extends React.Component<FormProps, any> {
           <div>
 
             <Field name="name" value={this.props.initialValues.name} type="text" component="input" />
+            <Field name="nickName" type="text" component="input" />
+            <Field name="tel" type="text" component="input" />
           </div>
-          {/* <Field name="nickName" type="text" component="input"  />
-          <Field name="tel" type="text" component="input"   /> */}
+
           <button type="submit" name="add">新增</button>
           <button type="button" name="edit" onClick={() => this.props.updateSubmit()}>修改</button>
         </form>
