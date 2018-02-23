@@ -24,7 +24,6 @@ class App extends React.Component<AppProps, any> {
     // if (!this.props.loading) { return <div>正在載入中</div> }
     // if (this.props.error) { return <div>程式碼有錯誤歐</div> }
     //return <BasicForm initialValues={{ name: 'polo' }}></BasicForm>
-
     return (
       <div>
         <TableListData>
@@ -32,12 +31,8 @@ class App extends React.Component<AppProps, any> {
             // console.log('result')
             // console.log(result)
             return <TableList initData={result.data.UserAllQuery} />
-
           }}
         </TableListData>
-
-
-
       </div>
     );
   }

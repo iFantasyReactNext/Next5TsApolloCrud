@@ -31,10 +31,10 @@ class TableList extends React.Component<TableListProps, States> {
 
   }
   render() {
-    console.log(this.props.initData)
+    //console.log(this.props.initData)
 
-    const Data = (this.props.initData !== undefined) ? this.props.initData.map(v => {
-      return <div key={v.name}><li>
+    const Data = (this.props.initData !== undefined) ? this.props.initData.map((v, i) => {
+      return <div key={`formData${i}`}><li>
         <button onClick={() => this._assign(v.userId)}>指定</button>
         <button onClick={() => this.props._delete(v.userId)}>刪除</button>
         {v.userId}    {v.name} {v.nickName}
@@ -47,11 +47,7 @@ class TableList extends React.Component<TableListProps, States> {
             assignId: ""
           })}
         >新增</button>
-
-
         {Data}
-
-
         <BasicInit userId={this.state.assignId || "1"}>{
           (result) => {
             console.log('result')

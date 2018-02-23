@@ -24,20 +24,39 @@ module.exports = UserResolver = {
   },
   Mutation: {
     UserUpdate: (_, { userId, name, nickName, tel }) => {
+
+      InitData.map((item): any => {
+        if (item.userId === userId) {
+          item.name = name;
+          item.nickName = nickName;
+          //item.tel = tel;
+        }
+        return item
+      })
+      console.log('InitData')
+
+      console.log(InitData)
       return { userId, name, nickName, tel }
     },
     UserAdd: (_, { name, nickName, tel }) => {
       console.log('新增一筆')
+      console.log(`name${name} nickName${nickName}`)
+
       const userId = shortid.generate()
-      return { userId, name, nickName, tel }
+      const NewOne = { userId, name, nickName, tel }
+      InitData = [...InitData, NewOne]
+
+      return NewOne
     },
     UserDelete: (_, { userId }) => {
+      // console.log('userId')
+      // console.log(userId)
       const result = InitData.findIndex((item): any => {
         return item.userId === userId
       })
 
 
-      console.log(`刪除${result}`)
+      // console.log(`刪除${result}`)
       let resultData = InitData.splice(result, 1);
       return resultData
     }

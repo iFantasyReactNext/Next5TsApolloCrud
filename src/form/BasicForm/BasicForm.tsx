@@ -17,12 +17,16 @@ interface FormProps {
   _EditPerson?: any;
   initialValues?: any;
   valid?: any;
+  assignId?: any;
   [propName: string]: any;
 }
-
-class BasicForm extends React.Component<FormProps, any> {
+interface FormState {
+  buttonState: String;
+}
+class BasicForm extends React.Component<FormProps, FormState> {
   constructor(props) {
     super(props)
+    this.state = { buttonState: "add" }
   }
   _Delete = () => {
     console.log('刪除作業')
@@ -44,16 +48,21 @@ class BasicForm extends React.Component<FormProps, any> {
         {this.props.initialValues.name}
         {this.props.initialValues.nickName}
         {this.props.initialValues.tel}
-        <form onSubmit={handleSubmit(gogo)}>
+        <form onSubmit={
+          (this.state.buttonState === 'add') ? handleSubmit(this.props.handleUserAdd) :
+            handleSubmit(this.props.handleUpdateUser)}
+
+        >
 
           <div>
             <Field name="name" type="text" component="input" />
             <Field name="nickName" type="text" component="input" />
             <Field name="tel" type="text" component="input" />
+            <Field name="userId" value={this.props.userId} type="text" component="input" />
           </div>
 
-          <button type="submit" disabled={pristine || submitting}>新增</button>
-          <button type="button" onClick={() => this.props.handleUpdateUser()}>修改</button>
+          <button type="submit" name="add" onClick={() => this.setState({ buttonState: "add" })} disabled={pristine || submitting}>新增</button>
+          <button type="submit" name="edit" onClick={() => this.setState({ buttonState: "edit" })} >修改</button>
 
         </form>
 
@@ -68,10 +77,10 @@ export default
     compose(
       graphql(UserAdd, {
         props: ({ data, mutate }) => ({
-          handleUserAdd: () => {
+          handleUserAdd: (formData) => {
             console.log('新增送出資料嚕')
             mutate({
-              variables: data,
+              variables: formData,
               refetchQueries: [{
                 query: UserAllQuery
               }]
@@ -83,11 +92,15 @@ export default
 
       graphql(UserUpdate, {
         props: ({ data, mutate }) => ({
-          handleUpdateUser: () => {
-            console.log('送出更新資料嚕')
-            // mutate({
-
-            // })
+          handleUpdateUser: (formData) => {
+            console.log(`送出更新資料嚕${formData}`)
+            ///formData.userId = assignId;
+            mutate({
+              variables: formData,
+              refetchQueries: [{
+                query: UserAllQuery
+              }]
+            })
           },
           updateSubmit: () => { console.log('更新送出資料嚕') },
         })

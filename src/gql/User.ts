@@ -25,8 +25,8 @@ export const UserAllQuery = gql`
 `
 
 export const UserUpdate = gql`
-      mutation UserUpdate($name:String,$tel:String,$nickName:String) {
-            UserUpdate(name:$name,tel:$tel,nickName:$nickName) 
+      mutation UserUpdate($name:String,$tel:String,$nickName:String,$userId:String) {
+            UserUpdate(name:$name,tel:$tel,nickName:$nickName,userId:$userId) 
                      {
                         userId
                         name
@@ -37,8 +37,8 @@ export const UserUpdate = gql`
 `
 
 export const UserDelete = gql`
-      mutation UserDelete($id:String) {
-            UserDelete(id:$id) 
+      mutation UserDelete($userId:String) {
+            UserDelete(userId:$userId) 
                      {
                         userId
                         name

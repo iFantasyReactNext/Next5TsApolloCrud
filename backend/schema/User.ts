@@ -13,8 +13,8 @@ module.exports = UserSchema = `
       UserOneQuery(userId:String):User    
  }
  type Mutation{
-      UserUpdate(name:String,nickName:String,tel:String):User
+      UserUpdate(userId:String,name:String,nickName:String,tel:String):User
       UserAdd(name:String,nickName:String,tel:String):User
-      UserDelete(id:String):User
+      UserDelete(userId:String):User
  }
 `
