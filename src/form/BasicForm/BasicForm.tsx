@@ -34,8 +34,8 @@ class BasicForm extends React.Component<FormProps, FormState> {
 
   render() {
     const { handleSubmit, pristine, reset, submitting, valid, handleAddUser, handleUpdateUser } = this.props
-    console.log('this.props.handleSubmit')
-    console.log(this.props.handleSubmit)
+    console.log('this.props')
+    console.log(this.props)
     const gogo = (data) => {
       console.log('==============')
       console.log(data)
@@ -72,7 +72,8 @@ class BasicForm extends React.Component<FormProps, FormState> {
 }
 export default
   reduxForm({
-    form: 'formBasic'
+    form: 'formBasic',
+    enableReinitialize: true
   })(
     compose(
       graphql(UserAdd, {
@@ -105,9 +106,5 @@ export default
           updateSubmit: () => { console.log('更新送出資料嚕') },
         })
       }),
-
-
-
-
 
     )(BasicForm))

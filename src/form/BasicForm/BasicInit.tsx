@@ -14,6 +14,11 @@ class BasicInit extends React.Component<BasicInitProps, any> {
     // console.log('-----constructor-----')
     // console.log(props)
   }
+  componentWillReceiveProps(NextProps) {
+
+    // console.log('change props')
+    // console.log(NextProps)
+  }
   render() {
 
     if (this.props.loading === true) { return <div>Loading</div> }
@@ -26,11 +31,14 @@ class BasicInit extends React.Component<BasicInitProps, any> {
 export default graphql<any, any>(UserOneQuery, {
   options: ({ userId }) => ({
     variables: { userId },
+    refetchQueries: [
+      { query: UserOneQuery }
+    ]
   }),
   props: ({ data }) => {
     // console.log()
-    // console.log('dataCheck')
-    // console.log(data)
+    console.log('dataCheck')
+    console.log(data)
     return data
     //     onSubmit: async (inputData) => {
     //       //console.log(inputData);
