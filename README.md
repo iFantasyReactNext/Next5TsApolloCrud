@@ -17,11 +17,10 @@ doing firebase auth
 doing firebase db
 doing apollo resolver mongoose
 
-
-
 ```
-    [![DemoPic](http://www.giphy.com/gifs/As7xcjaSvVm0l3ZXsm)]
 
+
+![Alt text](http://www.giphy.com/gifs/As7xcjaSvVm0l3ZXsm)
 
 note : 
 1. if add vaildate must to show error message that will easy forget 
