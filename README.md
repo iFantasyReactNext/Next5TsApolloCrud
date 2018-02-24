@@ -12,7 +12,10 @@ commit redux-form sample code  update & delete ok
 doing react-intl 
 doing apollo upload
 doing materail Ui  
-doing 
+doing firebase auth
+doing firebase db
+doing apollo resolver mongoose
+
 
 
 ```
