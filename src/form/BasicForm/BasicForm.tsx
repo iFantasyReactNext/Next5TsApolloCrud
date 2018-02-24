@@ -7,8 +7,11 @@ import { UserUpdate, UserAllQuery, UserAdd } from '../../gql/User';
 //import TextField from '../../components/renderComponents/TextField'
 //import TableListData from './TableListData'
 import TableList from './TableList'
-// export interface BasicFormProps {
-// }
+import DiyTextField from '../../components/RenderComponents/DiyTextField'
+import Button from 'material-ui/Button'
+import { FormControl, FormHelperText } from 'material-ui/Form';
+import styled from 'styled-components'
+import { GridContainer, GridItem } from '../../components/Layout/Grid'
 interface FormProps {
   handleSubmit?: any;
   pristine?: any;
@@ -23,6 +26,9 @@ interface FormProps {
 interface FormState {
   buttonState: String;
 }
+
+
+
 class BasicForm extends React.Component<FormProps, FormState> {
   constructor(props) {
     super(props)
@@ -44,25 +50,42 @@ class BasicForm extends React.Component<FormProps, FormState> {
     }
     return (
       <div>
-        基礎表單
-        {this.props.initialValues.name}
-        {this.props.initialValues.nickName}
-        {this.props.initialValues.tel}
+
+
         <form onSubmit={
           (this.state.buttonState === 'add') ? handleSubmit(this.props.handleUserAdd) :
             handleSubmit(this.props.handleUpdateUser)}
-
         >
 
           <div>
-            <Field name="name" type="text" component="input" />
-            <Field name="nickName" type="text" component="input" />
-            <Field name="tel" type="text" component="input" />
-            <Field name="userId" value={this.props.userId} type="text" component="input" />
+            <GridContainer>
+              <GridItem>
+
+                <Field name="name" type="text" label="姓名" component={DiyTextField} />
+
+              </GridItem>
+              <GridItem>
+
+                <Field name="nickName" type="text" label="暱稱" component={DiyTextField} />
+
+              </GridItem>
+              <GridItem>
+
+                <Field name="tel" type="text" label="電話" component={DiyTextField} />
+
+              </GridItem>
+              <GridItem>
+
+                <Field name="userId" label="Id" value={this.props.userId} type="text" component={DiyTextField} />
+
+              </GridItem>
+            </GridContainer>
           </div>
 
-          <button type="submit" name="add" onClick={() => this.setState({ buttonState: "add" })} disabled={pristine || submitting}>新增</button>
-          <button type="submit" name="edit" onClick={() => this.setState({ buttonState: "edit" })} >修改</button>
+          <Button type="submit" name="add" onClick={() => this.setState({ buttonState: "add" })} disabled={pristine || submitting}>新增</Button>
+          {this.props.assignId ?
+            <Button type="submit" name="edit" onClick={() => this.setState({ buttonState: "edit" })} >修改</Button>
+            : ""}
 
         </form>
 

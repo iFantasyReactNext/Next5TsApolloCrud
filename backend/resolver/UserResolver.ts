@@ -1,8 +1,8 @@
 var shortid = require('shortid');
 
 let InitData = [
-  { userId: "1", name: "神力女超人", "nickName": "Wonder Wonmen" },
-  { userId: "2", name: "蝙蝠俠", "nickName": "batMan" },
+  { userId: "1", name: "神力女超人", nickName: "Wonder Wonmen", tel: "" },
+  { userId: "2", name: "蝙蝠俠", nickName: "batMan", tel: "" },
 ]
 
 module.exports = UserResolver = {
@@ -11,7 +11,7 @@ module.exports = UserResolver = {
       return InitData
     },
     UserOneQuery: async (_, { userId = "1" }) => {
-      console.log(`找一筆${userId}`)
+      //console.log(`找一筆${userId}`)
 
       const result = InitData.find((item): any => {
         return item.userId === userId
@@ -29,18 +29,17 @@ module.exports = UserResolver = {
         if (item.userId === userId) {
           item.name = name;
           item.nickName = nickName;
-          //item.tel = tel;
+          item.tel = tel;
         }
         return item
       })
-      console.log('InitData')
-
-      console.log(InitData)
+      // console.log('InitData')
+      // console.log(InitData)
       return { userId, name, nickName, tel }
     },
     UserAdd: (_, { name, nickName, tel }) => {
-      console.log('新增一筆')
-      console.log(`name${name} nickName${nickName}`)
+      // console.log('新增一筆')
+      // console.log(`name${name} nickName${nickName}`)
 
       const userId = shortid.generate()
       const NewOne = { userId, name, nickName, tel }
