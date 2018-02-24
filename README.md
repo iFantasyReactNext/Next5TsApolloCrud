@@ -25,5 +25,5 @@ https://giphy.com/gifs/YlJjfdkpDJuZaQc6l1
 note : 
 1. if add vaildate must to show error message that will easy forget 
 2. redux-form reducer must be "form" 
-3. backend  not  use import yet
+3. if tsconfig.json  module choose  esnext that backend  not  use import  
 4. this startkit project form use redux-form another side effect use redux-observable
