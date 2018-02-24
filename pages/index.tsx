@@ -13,6 +13,9 @@ class App extends React.Component<AppProps, any> {
         <Link href="/form">
           <a>CRUD with Apollo</a>
         </Link>{' '}
+        <Link href="/ReactIntlPage">
+          <a>ReactIntlPage</a>
+        </Link>{' '}
       </div>
     );
   }

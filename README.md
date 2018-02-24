@@ -8,10 +8,12 @@ commit redux-form  store setup ok
 commit apolloGraphQL front end ok
 commit apolloGraphQL back end  ok
 commit redux-form sample code default query & changeText ok
-doing redux-form sample code  update & delete
+commit redux-form sample code  update & delete ok
+doing react-intl 
+doing apollo upload
 doing materail Ui  
+doing 
 
-backend not  support import 
 
 ```
 
@@ -19,3 +21,4 @@ backend not  support import
 note : 
 1. if add vaildate must to show error message that will easy forget 
 2. redux-form reducer must be "form" 
+3. backend  not  use import yet
