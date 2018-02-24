@@ -9,9 +9,10 @@ commit apolloGraphQL front end ok
 commit apolloGraphQL back end  ok
 commit redux-form sample code default query & changeText ok
 commit redux-form sample code  update & delete ok
-doing react-intl 
-doing apollo upload
-doing materail Ui  
+commit  materail Ui + table ok
+doing react-intl half
+doing apollo upload 
+
 doing firebase auth
 doing firebase db
 doing apollo resolver mongoose

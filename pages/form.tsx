@@ -1,8 +1,8 @@
 import * as React from 'react'
 import BasicForm from '../src/form/BasicForm/BasicForm'
-import WithRedux from '../src/config/WithRedux'
+import WithRedux from '../src/HocLib/WithRedux'
 //import BasicInit from '../src/form/BasicForm/BasicInit'
-import WithData from '../src/config/WithData'
+import WithData from '../src/HocLib/WithData'
 //import { UserOneQuery } from '../src/gql/User';
 import TableListData from '../src/form/BasicForm/TableListData';
 import TableList from '../src/form/BasicForm/TableList';

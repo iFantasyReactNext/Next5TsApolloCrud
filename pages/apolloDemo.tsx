@@ -1,5 +1,5 @@
 import * as React from 'react';
-import WithData from '../src/config/WithData';
+import WithData from '../src/HocLib/WithData';
 
 export interface AppProps {
 }

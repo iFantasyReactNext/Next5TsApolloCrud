@@ -10,7 +10,7 @@ import {
 } from "react-intl"
 
 
-import Layout from "../src/components/Layout"
+import Layout from "../src/HocLib/Layout"
 import pageWithIntl from "../src/components/PageWithIntl"
 
 const { description } = defineMessages({

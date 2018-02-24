@@ -4,6 +4,9 @@ import { UserDelete, UserAllQuery } from '../../gql/User';
 import { variablesInOperation } from 'apollo-utilities';
 import BasicInit from './BasicInit';
 import BasicForm from './BasicForm';
+import {
+  Grid, Table, TableHeaderRow
+} from '@devexpress/dx-react-grid-material-ui'
 
 
 export interface TableListProps {
@@ -34,20 +37,47 @@ class TableList extends React.Component<TableListProps, States> {
     //console.log(this.props.initData)
 
     const Data = (this.props.initData !== undefined) ? this.props.initData.map((v, i) => {
-      return <div key={`formData${i}`}><li>
-        <button onClick={() => this._assign(v.userId)}>指定</button>
-        <button onClick={() => this.props._delete(v.userId)}>刪除</button>
-        {v.userId}    {v.name} {v.nickName}
-      </li></div>
+      return {
+        assign: <button onClick={() => this._assign(v.userId)}>指定</button>,
+        del: <button onClick={() => this.props._delete(v.userId)}>刪除</button>,
+        userId: v.userId, name: v.name, tel: v.tel, nickName: v.nickName
+      }
+
+
+
+      // <div key={`formData${i}`}><li>
+      //   <button onClick={() => this._assign(v.userId)}>指定</button>
+      //   <button onClick={() => this.props._delete(v.userId)}>刪除</button>
+      //   {v.userId}    {v.name} {v.nickName}
+      // </li></div>
     }) : ""
     return (
       <div>
-        列表清單 - 目前指定的Id是 {this.state.assignId}  改新增 <button
-          onClick={() => this.setState({
-            assignId: ""
-          })}
-        >新增</button>
-        {Data}
+        {
+          this.state.assignId ?
+            <div>  指定修改的Id是 {this.state.assignId}   <button
+              onClick={() => this.setState({
+                assignId: ""
+              })}
+            >取消修改</button>
+            </div> : ""
+        }
+
+
+        <Grid
+          rows={Data}
+          columns={[
+            { name: 'assign', title: '指定' },
+            { name: 'del', title: '刪除' },
+            { name: 'userId', title: 'UserId' },
+            { name: 'name', title: 'Name' },
+            { name: 'nickName', title: 'nickName' },
+          ]}>
+          <Table />
+          <TableHeaderRow />
+        </Grid>
+
+
         <BasicInit userId={this.state.assignId || "1"}>{
           (result) => {
             console.log('result')
