@@ -52,8 +52,8 @@ export default function pageWithIntl<P extends InjectedIntlProps>(
       // error TS2700: Rest types may only be created from object types.
       // see https://github.com/Microsoft/TypeScript/issues/12756#issuecomment-265812676
       // const {locale, messages, initialNow, ...props} = this.props
-      const { locale, messages, initialNow } = this.props
-
+      const { messages, initialNow } = this.props
+      const locale = "zh"
       return (
         <IntlProvider locale={locale} messages={messages}>
           <IntlPage {...this.props} />
