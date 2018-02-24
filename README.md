@@ -20,7 +20,7 @@ doing apollo resolver mongoose
 ```
 
 
-![Alt text](http://www.giphy.com/gifs/As7xcjaSvVm0l3ZXsm)
+![DEMOPIC](https://giphy.com/gifs/YlJjfdkpDJuZaQc6l1)
 
 note : 
 1. if add vaildate must to show error message that will easy forget 
