@@ -39,13 +39,13 @@ export default function pageWithIntl<P extends InjectedIntlProps>(
       // Get the `locale` and `messages` from the request object on the server.
       // In the browser, use the same values that the server serialized.
       const { req } = context
-      const { locale, messages, antdLocale } = req || window.__NEXT_DATA__.props
+      const { locale, messages } = req || window.__NEXT_DATA__.props
 
       // Always update the current time on page load/transition because the
       // <IntlProvider> will be a new instance even with pushState routing.
       const initialNow = Date.now()
 
-      return { locale, messages, initialNow, antdLocale, ...props }
+      return { locale, messages, initialNow, ...props }
     }
 
     public render() {
@@ -54,6 +54,8 @@ export default function pageWithIntl<P extends InjectedIntlProps>(
       // const {locale, messages, initialNow, ...props} = this.props
       const { locale, messages, initialNow } = this.props
       //const locale = "zh"
+      // console.log('this.props多國語言')
+      // console.log(this.props)
       return (
         <IntlProvider locale={locale} messages={messages}>
           <IntlPage {...this.props} />

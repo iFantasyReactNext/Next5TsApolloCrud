@@ -6,7 +6,6 @@ declare interface Window {
     props: {
       locale: ReactIntl.Locale
       messages: object
-      antdLocale: object
       now: Date
     }
   }

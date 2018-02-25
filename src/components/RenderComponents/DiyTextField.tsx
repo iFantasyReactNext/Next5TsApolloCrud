@@ -2,8 +2,6 @@ import * as React from 'react';
 import TextField from 'material-ui/TextField'
 // import HocTypeSound from '../../components/SoundBox/HocTypeSound';
 
-
-
 export interface DiyTextFieldProps {
   initValue?: string | undefined | number;
   placeholder?: string;
