@@ -5,7 +5,8 @@ import { rootReducer, rootEpic } from './reduxObserable'
 
 
 
-const glob = require('glob')
+
+
 
 
 //import ReduxThunk from 'redux-thunk'

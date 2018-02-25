@@ -9,10 +9,10 @@ import {
   InjectedIntlProps
 } from "react-intl"
 
-
+import Link from 'next/link'
 import Layout from "../src/components/Layout"
 import pageWithIntl from "../src/HocLib/WithIntl"
-
+import Button from 'material-ui/Button'
 const { description } = defineMessages({
   description: {
     defaultMessage: "An example app integrating React Intl with Next.js",
@@ -51,6 +51,24 @@ class ReactIntlPage extends React.PureComponent<ReactIntlPageProps> {
             updateInterval={1000}
           />
         </p>
+
+        <Button>
+
+          <Link href={{ pathname: '/ReactIntlPage', query: { locale: 'en' } }}>
+
+            <a>切換英文</a>
+          </Link>{" "}
+
+        </Button>
+
+        <Button>
+          <Link href={{ pathname: '/ReactIntlPage', query: { locale: 'zh' } }} >
+            <a>切換中英文</a>
+          </Link>{" "}
+
+        </Button>
+
+
       </Layout>
     )
   }

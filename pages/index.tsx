@@ -12,10 +12,13 @@ class App extends React.Component<AppProps, any> {
       <div>
         各種好物的ＤＥＭＯ
         <Link href="/form">
-          <Button><a>CRUD with Apollo</a></Button>
+          <Button><a>
+            Apollo with Material Ui CRUD
+
+            </a></Button>
         </Link>{' '}
         <Link href="/ReactIntlPage">
-          <Button><a>ReactIntlPage</a></Button>
+          <Button><a>多國語系</a></Button>
         </Link>{' '}
       </div>
     );

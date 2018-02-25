@@ -38,14 +38,23 @@ const getMessages = (locale) => {
 app.prepare().then(() => {
   const server = express();
 
+
+
+
   server.use((req, res, next) => {
     const parsedUrl = parse(req.url, true)
     const accept = accepts(req)
+    //這邊會抓取header去判斷網頁客戶端的類別
     let locale = accept.language(languages)
-    locale = locale || 'en'
+    locale = (req.query.locale) ? req.query.locale : locale ? locale : 'en'
+
+    console.log(req.query)
     req.locale = locale
+
     req.localeDataScript = getLocaleDataScript(locale)
     req.messages = getMessages(locale)
+
+
     next()
   })
 
@@ -69,8 +78,7 @@ app.prepare().then(() => {
   );
 
   server.get('*', (req, res) => {
-    console.log('----backend-----')
-    console.log(req)
+
     return handle(req, res)
   })
 
