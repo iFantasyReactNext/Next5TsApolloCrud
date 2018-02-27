@@ -1,4 +1,5 @@
 {
-  "description": "An example app integrating React Intl with Next.js",
-  "greeting": "Hello, World!"
+  "description": "this is good start kit",
+  "greeting": "Hello, World!",
+  "story": "this is adventure"
 }

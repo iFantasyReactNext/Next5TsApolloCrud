@@ -5,6 +5,10 @@
   },
   {
     "id": "greeting",
-    "defaultMessage": "Hello, World!"
+    "defaultMessage": "defautl value"
+  },
+  {
+    "id": "story",
+    "defaultMessage": "story default message"
   }
 ]

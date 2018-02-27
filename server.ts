@@ -37,23 +37,21 @@ const getMessages = (locale) => {
 
 app.prepare().then(() => {
   const server = express();
-
-
-
-
   server.use((req, res, next) => {
     const parsedUrl = parse(req.url, true)
     const accept = accepts(req)
+    console.log('=====req.query====')
+    // console.log(parsedUrl)
     //這邊會抓取header去判斷網頁客戶端的類別
     let locale = accept.language(languages)
     locale = (req.query.locale) ? req.query.locale : locale ? locale : 'en'
-
-    console.log(req.query)
+    //locale = locale ? locale : 'en'
+    // console.log('locale')
+    // console.log(locale)
     req.locale = locale
-
     req.localeDataScript = getLocaleDataScript(locale)
     req.messages = getMessages(locale)
-
+    //console.log(req.messages)
 
     next()
   })
@@ -78,7 +76,9 @@ app.prepare().then(() => {
   );
 
   server.get('*', (req, res) => {
-
+    console.log('====server====')
+    console.log(req.locale)
+    // req.locale = "zh"
     return handle(req, res)
   })
 

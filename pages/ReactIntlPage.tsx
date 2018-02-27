@@ -40,7 +40,14 @@ class ReactIntlPage extends React.PureComponent<ReactIntlPageProps> {
           />
         </Head>
         <p>
-          <FormattedMessage id="greeting" defaultMessage="Hello, World!" />
+          <FormattedMessage id="greeting"
+            defaultMessage="defautl value" />
+        </p>
+        <p>
+          <FormattedMessage id="story"
+            defaultMessage="story default message" />
+
+
         </p>
         <p>
           <FormattedNumber value={1000} />
@@ -63,7 +70,7 @@ class ReactIntlPage extends React.PureComponent<ReactIntlPageProps> {
 
         <Button>
           <Link href={{ pathname: '/ReactIntlPage', query: { locale: 'zh' } }} >
-            <a>切換中英文</a>
+            <a>切換中文</a>
           </Link>{" "}
 
         </Button>
