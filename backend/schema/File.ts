@@ -1,5 +1,6 @@
 
-export const typeDefs = `
+
+module.exports = FileSchema = `
 scalar Upload
 type File{
 fileId: String
