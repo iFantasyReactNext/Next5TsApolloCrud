@@ -2,8 +2,10 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const next = require("next");
 var port = process.env.NODE_ENV !== "production" ? 3000 : 80;
-const { graphqlExpress, graphiqlExpress } = require("apollo-server-express");
+
 const AllSchema = require("./backend");
+const { apolloUploadExpress } = require('apollo-upload-server')
+const { graphqlExpress, graphiqlExpress } = require("apollo-server-express");
 
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
@@ -59,6 +61,7 @@ app.prepare().then(() => {
   server.use(
     "/graphql",
     bodyParser.json(),
+    apolloUploadExpress(),
     graphqlExpress(async () => {
       return {
         schema: AllSchema,
