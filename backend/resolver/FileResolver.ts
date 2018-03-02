@@ -1,7 +1,40 @@
 
-import { GraphQLUpload } from 'apollo-upload-server'
-import * as shortid from 'shortid'
-import * as fs from 'fs';
+import * as  shortid from 'shortid'
+import * as  fs from 'fs'
+import BassResolverSchema, { BassResolverType } from './BassResolverSchema';
+import { Field } from 'redux-form';
+
+class FileComponent extends BassResolverSchema {
+  constructor(props) { super(props) }
+}
+
+const Query = {
+  Query: {
+    oneUpdate: () => { return {} }
+  }
+}
+const Mutation = {
+  Mutation: {
+    singleUpload: (obj, { file }) => {
+      return processUpload(file)
+    }
+  }
+}
+
+const FileSchema: BassResolverType = {
+  Query,
+  Mutation,
+  Field: {}
+}
+
+export default new FileComponent(FileSchema)
+
+
+
+
+
+
+
 
 const processUpload = async (file) => {
   console.log(file)
@@ -23,15 +56,14 @@ const storeFS: any = (stream, filename) => {
   })
 }
 
-export const UploadRes = {
-  Upload: GraphQLUpload,
-  Query: {
-    oneUpdate: () => { return {} }
-  },
-  Mutation: {
-    singleUpload: (obj, { file }) => {
+// export default {
+//   Query: {
+//     oneUpdate: () => { return {} }
+//   },
+//   Mutation: {
+//     singleUpload: (obj, { file }) => {
 
-      return processUpload(file)
-    }
-  }
-};
+//       return processUpload(file)
+//     }
+//   }
+// };

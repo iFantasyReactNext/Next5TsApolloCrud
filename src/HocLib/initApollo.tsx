@@ -3,6 +3,7 @@ import { HttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import * as fetch from 'isomorphic-unfetch'
 import { ApolloLink } from 'apollo-link'
+import { createUploadLink } from 'apollo-upload-client'
 
 
 let apolloClient = null
@@ -20,7 +21,7 @@ function create(initialState) {
 
   return new ApolloClient({
     ssrMode: !process.browser,
-    link: Http,
+    link: createUploadLink(Http),
     cache: new InMemoryCache().restore(initialState || {})
   })
 }

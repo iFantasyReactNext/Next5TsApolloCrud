@@ -1,5 +1,7 @@
-var UserSchema = require('./User')
-var FileSchema = require('./File')
-//console.log(UserSchema)
-module.exports = [UserSchema, FileSchema]
+import UserSchema from './User'
+import FileSchema from './File'
 
+
+let result = [FileSchema, UserSchema]
+//console.log(result)
+export default result

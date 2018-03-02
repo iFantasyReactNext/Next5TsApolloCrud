@@ -1,20 +1,35 @@
+import BassSchema, { BassSchemaProps } from './BassSchema'
 
 
-module.exports = FileSchema = `
-scalar Upload
+
+class FileSchemaClass extends BassSchema {
+  constructor(props) { super(props) }
+}
+
+
+const typeDefs = `scalar Upload
 type File{
 fileId: String
 path: String
 filename: String
 mimetype: String
 encoding: String
-}
-type Query{
+}`
+const queries = `
   oneUpdate:[File]
-}
-
-type Mutation {
+`
+const mutations = `
   singleUpload (file: Upload): File
+`
+
+const Schema: BassSchemaProps = {
+  typeDefs,
+  queries,
+  mutations
+
 }
 
-`;
+
+export default new FileSchemaClass(Schema)
+
+
