@@ -27,6 +27,7 @@
     "graphql-tools": "^2.21.0",
     "http": "^0.0.0",
     "intl": "^1.2.5",
+    "isomorphic-fetch": "^2.2.1",
     "isomorphic-unfetch": "^2.0.0",
     "jss": "^9.8.0",
     "lodash": "^4.17.5",

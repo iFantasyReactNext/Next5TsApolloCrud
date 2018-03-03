@@ -2,7 +2,7 @@ import { ApolloClient } from 'apollo-client';
 import { HttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import * as fetch from 'isomorphic-unfetch'
-import { ApolloLink } from 'apollo-link'
+import { ApolloLink, concat } from 'apollo-link';
 import { createUploadLink } from 'apollo-upload-client'
 
 
@@ -17,11 +17,11 @@ function create(initialState) {
   //  const uri=(process.env.NODE_ENV!== 'production')?`http://localhost:3000/graphql`:
   const uri = `http://localhost:3000/graphql`
 
-  const Http = new HttpLink({ uri, credentials })
+  const httpLink2 = new HttpLink({ uri, credentials })
 
   return new ApolloClient({
     ssrMode: !process.browser,
-    link: createUploadLink(Http),
+    link: createUploadLink(httpLink2),
     cache: new InMemoryCache().restore(initialState || {})
   })
 }

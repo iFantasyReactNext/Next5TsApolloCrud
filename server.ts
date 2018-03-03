@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const next = require("next");
 var port = process.env.NODE_ENV !== "production" ? 3000 : 80;
 
-const AllSchema = require("./backend");
+var AllSchema = require("./backend")
 const { apolloUploadExpress } = require('apollo-upload-server')
 const { graphqlExpress, graphiqlExpress } = require("apollo-server-express");
 
@@ -21,6 +21,10 @@ const { parse } = require('url')
 
 const languages = glob.sync('./lang/*.json').map((f) => basename(f, '.json'))
 const localeDataCache = new Map()
+
+
+//console.log(AllSchema)
+
 const getLocaleDataScript = (locale) => {
   const lang = locale.split('-')[0]
   if (!localeDataCache.has(lang)) {

@@ -1,6 +1,6 @@
 import { Context } from "next"
 import Head from "next/head"
-import React, { Component } from "react"
+import React, { PureComponent } from "react"
 import {
   defineMessages,
   FormattedMessage,
@@ -25,7 +25,7 @@ interface ReactIntlPageProps extends InjectedIntlProps {
   intl?: any;
 }
 
-class ReactIntlPage extends React.PureComponent<ReactIntlPageProps> {
+class ReactIntlPage extends PureComponent<ReactIntlPageProps> {
   public static async getInitialProps(context: Context) {
     return { someDate: Date.now() }
   }

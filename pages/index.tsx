@@ -20,6 +20,13 @@ class App extends React.Component<AppProps, any> {
         <Link href="/ReactIntlPage">
           <Button><a>多國語系</a></Button>
         </Link>{' '}
+
+        <Link href="/fileUpload">
+          <Button><a>
+            Apollo Upload
+
+            </a></Button>
+        </Link>{' '}
       </div>
     );
   }

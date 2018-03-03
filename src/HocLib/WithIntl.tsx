@@ -1,6 +1,6 @@
 //import LocaleProvider, { Locale } from "antd/lib/locale-provider"
 import { Context } from "next"
-import React, { Component } from "react"
+import * as  React from "react"
 import {
   addLocaleData,
   InjectedIntlProps,
@@ -11,6 +11,7 @@ import zhLocaleData from 'react-intl/locale-data/zh';
 import Router from 'next/router'
 var zh = require('../../lang/zh.json')
 var en = require('../../lang/en.json')
+
 // Register React Intl's locale data for the user's locale in the browser. This
 // locale data was added to the page by `pages/_document.js`. This only happens
 // once, on initial page load in the browser.
