@@ -11,8 +11,9 @@ commit redux-form sample code default query & changeText ok
 commit redux-form sample code  update & delete ok
 commit materail Ui + table ok
 commit react-intl ok
-commit apollo ok 
-doing styled-compoent +material-Ui Layout
+commit apollo upload ok 
+test script build & start
+doing  material-Ui Layout
 doing firebase host
 doing firebase auth 
 doing firebase db

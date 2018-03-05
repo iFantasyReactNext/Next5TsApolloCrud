@@ -1,11 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import * as  React from 'react';
 import { MuiThemeProvider } from 'material-ui/styles';
 import Reboot from 'material-ui/Reboot';
 import getPageContext from './getPageContext';
 
-function withRoot(Component) {
-  class WithRoot extends React.Component<any, any> {
+function WithMaterial(Component) {
+  class WithMaterial extends React.Component<any, any> {
     static getInitialProps: (ctx: any) => any;
     componentWillMount() {
       this.pageContext = this.props.pageContext || getPageContext();
@@ -36,11 +35,11 @@ function withRoot(Component) {
     }
   }
 
-  // WithRoot.propTypes = {
+  // WithMaterial.propTypes = {
   //   pageContext: PropTypes.object,
   // };
 
-  WithRoot.getInitialProps = ctx => {
+  WithMaterial.getInitialProps = ctx => {
     if (Component.getInitialProps) {
       return Component.getInitialProps(ctx);
     }
@@ -48,7 +47,7 @@ function withRoot(Component) {
     return {};
   };
 
-  return WithRoot;
+  return WithMaterial;
 }
 
-export default withRoot;
+export default WithMaterial;
