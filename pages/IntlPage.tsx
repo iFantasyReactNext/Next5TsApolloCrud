@@ -1,5 +1,10 @@
-import { Context } from "next"
-import * as React from "react"
+import * as React from 'react';
+import WithIntl from '../src/HocLib/WithIntl'
+import Link from 'next/link'
+import Layout from "../src/components/Layout"
+import pageWithIntl from "../src/HocLib/WithIntl"
+import Button from 'material-ui/Button'
+import { Context } from 'next';
 import {
   defineMessages,
   FormattedMessage,
@@ -7,31 +12,23 @@ import {
   FormattedRelative,
   InjectedIntlProps
 } from "react-intl"
-
-import Link from 'next/link'
-import Layout from "../src/components/Layout"
-import pageWithIntl from "../src/HocLib/WithIntl"
-import Button from 'material-ui/Button'
-const { description } = defineMessages({
-  description: {
-    defaultMessage: "An example app integrating React Intl with Next.js",
-    id: "description"
-  }
-})
-
-interface ReactIntlPageProps extends InjectedIntlProps {
-  someDate: Date
-  intl?: any;
+// const { description } = defineMessages({
+//   description: {
+//     defaultMessage: "An example app integrating React Intl with Next.js",
+//     id: "description"
+//   }
+// })
+export interface IntlPageProps {
 }
 
-class ReactIntlPage extends React.Component<ReactIntlPageProps> {
+class IntlPage extends React.Component<any, any> {
   public static async getInitialProps(context: Context) {
     return { someDate: Date.now() }
   }
-
-  public render() {
+  render() {
     return (
       <div>
+
         <p>
           <FormattedMessage id="greeting"
             defaultMessage="defautl value" />
@@ -54,7 +51,7 @@ class ReactIntlPage extends React.Component<ReactIntlPageProps> {
 
         <Button>
 
-          <Link href={{ pathname: '/ReactIntlPage', query: { locale: 'en' } }}>
+          <Link href={{ pathname: '/IntlPage', query: { locale: 'en' } }}>
 
             <a>切換英文</a>
           </Link>{" "}
@@ -62,15 +59,14 @@ class ReactIntlPage extends React.Component<ReactIntlPageProps> {
         </Button>
 
         <Button>
-          <Link href={{ pathname: '/ReactIntlPage', query: { locale: 'zh' } }} >
+          <Link href={{ pathname: '/IntlPage', query: { locale: 'zh' } }} >
             <a>切換中文</a>
           </Link>{" "}
 
         </Button>
-
-      </div >
-    )
+      </div>
+    );
   }
 }
 
-export default pageWithIntl(ReactIntlPage)
+export default WithIntl(IntlPage)

@@ -27,3 +27,8 @@ note :
 2. redux-form reducer must be "form" 
 3. if tsconfig.json  module choose  esnext that backend  not  use import  
 4. this startkit project form use redux-form another side effect use redux-observable
+
+about tsconfig setup if use async it not support es6
+"target": "es5",
+"module": "commonjs",
+if choose esnext that backend can't use import 

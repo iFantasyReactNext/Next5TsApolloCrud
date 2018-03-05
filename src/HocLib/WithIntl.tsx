@@ -7,10 +7,8 @@ import {
   injectIntl,
   IntlProvider
 } from "react-intl"
-import zhLocaleData from 'react-intl/locale-data/zh';
-import Router from 'next/router'
-var zh = require('../../lang/zh.json')
-var en = require('../../lang/en.json')
+import * as zhLocaleData from 'react-intl/locale-data/zh';
+
 
 // Register React Intl's locale data for the user's locale in the browser. This
 // locale data was added to the page by `pages/_document.js`. This only happens
@@ -20,7 +18,11 @@ if (typeof window !== "undefined" && window.ReactIntlLocaleData) {
     addLocaleData(window.ReactIntlLocaleData[lang])
   })
 }
+
+//console.log('addLocaleData(zhLocaleData)')
+
 addLocaleData(zhLocaleData)
+
 interface AdditionalProps {
   locale: string
   messages: object
@@ -44,12 +46,15 @@ export default function pageWithIntl<P extends InjectedIntlProps>(
 
       // Get the `locale` and `messages` from the request object on the server.
       // In the browser, use the same values that the server serialized.
+      var zh = require('../../lang/zh.json')
+      var en = require('../../lang/en.json')
 
       const { req, query } = context
       //如果是前端
       tempdata = {}
       switch (query.locale) {
         case "zh":
+
           tempdata = { locale: "zh", messages: zh }
           break
         case "en":
@@ -64,7 +69,7 @@ export default function pageWithIntl<P extends InjectedIntlProps>(
       // // if (req) {
       // console.log(req)
       // }
-      //console.log(tempdata)
+      console.log(tempdata)
       let { locale, messages } = req || tempdata
       //if (query) { locale = query.locale; }
 
@@ -82,8 +87,9 @@ export default function pageWithIntl<P extends InjectedIntlProps>(
       // const {locale, messages, initialNow, ...props} = this.props
       const { locale, messages, initialNow } = this.props
       //const locale = "zh"
-      // console.log('messages多國語言')
-      // console.log(locale)
+      console.log('messages多國語言')
+      console.log(locale)
+      console.log(messages)
       return (
         <IntlProvider locale={locale} messages={messages}>
           <IntlPage {...this.props} />
