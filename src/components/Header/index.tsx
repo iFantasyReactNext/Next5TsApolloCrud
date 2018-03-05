@@ -22,6 +22,7 @@ const styles = {
 
 
 export interface HeaderBarProps {
+  Title?: string;
   [propsName: string]: any
 }
 
@@ -36,7 +37,7 @@ const HeaderBar = (props) => {
             <MenuIcon />
           </IconButton>
           <Typography variant="title" color="inherit" className={classes.flex}>
-            Title
+            {props.Title}
           </Typography>
           <Button color="inherit">Login</Button>
         </Toolbar>

@@ -14,8 +14,7 @@ class App extends React.Component<AppProps, any> {
 
       <div>
         <Layout>
-          各種好物的ＤＥＭＯ
-        <Link href="/form">
+          <Link href="/form">
             <Button><a>
               Apollo with Material Ui CRUD
 

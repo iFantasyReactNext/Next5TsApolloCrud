@@ -20,7 +20,7 @@ export default class Layout extends React.Component<LayoutProps, any> {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta charSet="utf-8" />
         </Head>
-        <Header></Header>
+        <Header Title="各種好物的ＤＥＭＯ"></Header>
         <div>
           {this.props.children}
         </div>
