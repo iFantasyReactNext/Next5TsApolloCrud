@@ -7,7 +7,7 @@ import WithMaterial from '../src/HocLib/WithMaterial'
 import Layout from '../src/components/Layout'
 export interface AppProps {
 }
-
+@WithMaterial
 class App extends React.Component<AppProps, any> {
   render() {
     return (

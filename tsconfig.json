@@ -1,4 +1,9 @@
 {
+  "plugins": [
+    {
+      "name": "typescript-styled-plugin"
+    }
+  ],
   "compileOnSave": false,
   "compilerOptions": {
     "target": "es5",

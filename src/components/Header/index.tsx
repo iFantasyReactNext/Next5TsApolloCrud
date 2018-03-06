@@ -37,7 +37,7 @@ const HeaderBar = (props) => {
             <MenuIcon />
           </IconButton>
           <Typography variant="title" color="inherit" className={classes.flex}>
-            {props.Title}
+            {props.Title || ""}
           </Typography>
           <Button color="inherit">Login</Button>
         </Toolbar>

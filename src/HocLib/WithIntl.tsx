@@ -1,6 +1,7 @@
 //import LocaleProvider, { Locale } from "antd/lib/locale-provider"
 import { Context } from "next"
 import * as  React from "react"
+
 import {
   addLocaleData,
   InjectedIntlProps,
@@ -54,7 +55,6 @@ export default function pageWithIntl<P extends InjectedIntlProps>(
       tempdata = {}
       switch (query.locale) {
         case "zh":
-
           tempdata = { locale: "zh", messages: zh }
           break
         case "en":
