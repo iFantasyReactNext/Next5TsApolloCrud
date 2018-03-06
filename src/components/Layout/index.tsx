@@ -1,6 +1,12 @@
 import * as React from 'react';
 import Head from "next/head"
 import Header from '../Header'
+import BottomNavigationBlock from '../BottomNavigationBlock'
+import styled from 'styled-components'
+
+const FooterDiv = styled.div`
+  
+`
 export interface LayoutProps {
   [propsName: string]: any
 }
@@ -23,6 +29,16 @@ export default class Layout extends React.Component<LayoutProps, any> {
         <Header Title="各種好物的ＤＥＭＯ"></Header>
         <div>
           {this.props.children}
+        </div>
+        <div style={{
+          position: "fixed",
+          bottom: "0",
+          width: "100%",
+          display: "flex",
+          justifyContent: "center"
+        }}>
+
+          <BottomNavigationBlock ></BottomNavigationBlock>
         </div>
       </div>
     );

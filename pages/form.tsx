@@ -8,12 +8,15 @@ import TableListData from '../src/form/BasicForm/TableListData';
 import TableList from '../src/form/BasicForm/TableList';
 import configureStore from '../store'
 import * as  withRedux from 'next-redux-wrapper'
+import WithMaterial from '../src/HocLib/WithMaterial'
+import Layout from '../src/components/Layout'
 export interface AppProps {
   [propsName: string]: any
 }
 
 
 //@WithRedux
+@WithMaterial
 class App extends React.Component<AppProps, any> {
   constructor(props) {
     super(props)
@@ -26,13 +29,15 @@ class App extends React.Component<AppProps, any> {
     //return <BasicForm initialValues={{ name: 'polo' }}></BasicForm>
     return (
       <div>
-        <TableListData>
-          {(result) => {
-            // console.log('result')
-            // console.log(result)
-            return <TableList initData={result.data.UserAllQuery} />
-          }}
-        </TableListData>
+        <Layout>
+          <TableListData>
+            {(result) => {
+              // console.log('result')
+              // console.log(result)
+              return <TableList initData={result.data.UserAllQuery} />
+            }}
+          </TableListData>
+        </Layout>
       </div>
     );
   }

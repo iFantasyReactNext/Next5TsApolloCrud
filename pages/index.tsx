@@ -11,7 +11,6 @@ export interface AppProps {
 class App extends React.Component<AppProps, any> {
   render() {
     return (
-
       <div>
         <Layout>
           <Link href="/form">

@@ -12,8 +12,8 @@ commit redux-form sample code  update & delete ok
 commit materail Ui + table ok
 commit react-intl ok
 commit apollo upload ok 
+commit  material-Ui Layout ok
 test script build & start
-doing  material-Ui Layout
 doing firebase host
 doing firebase auth 
 doing firebase db
