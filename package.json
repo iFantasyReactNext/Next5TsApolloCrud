@@ -62,7 +62,8 @@
   "scripts": {
     "dev": "ts-node  server",
     "dev:debug": "ts-node --inspect-brk=5858 server",
-    "build": "next build"
+    "build": "next build",
+    "start": "next start"
   },
   "repository": {
     "type": "git",

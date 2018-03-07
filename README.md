@@ -13,12 +13,7 @@ commit materail Ui + table ok
 commit react-intl ok
 commit apollo upload ok 
 commit  material-Ui Layout ok
-test script build & start
-doing firebase host
-doing firebase auth 
-doing firebase db
-doing apollo resolver mongoose
-doing side effect redux-obserable 
+commit script build & start ok
 
 ```
 Demo
