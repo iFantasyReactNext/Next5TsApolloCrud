@@ -24,8 +24,7 @@ const { description } = defineMessages({
 
 
 interface ReactIntlPageProps extends InjectedIntlProps {
-  someDate: Date
-  intl?: any;
+
   [propName: string]: any
 }
 

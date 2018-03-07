@@ -71,6 +71,6 @@ app.prepare().then(() => {
   server.listen(port, err => {
     if (err) throw err;
     //	console.log(`> xxx ${process.env.NODE_ENV}`);
-    console.log(`> 準備好嚕  on http://localhost:${port}`);
+    console.log(`> ready  on http://localhost:${port}`);
   });
 });

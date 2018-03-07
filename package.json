@@ -5,6 +5,7 @@
     "@devexpress/dx-react-grid-material-ui": "^1.0.1",
     "@types/next": "^2.4.8",
     "@types/node": "^9.4.6",
+    "@types/react-intl": "^2.3.5",
     "@zeit/next-typescript": "^0.0.10",
     "accepts": "^1.3.4",
     "apollo-cache-inmemory": "^1.1.9",
